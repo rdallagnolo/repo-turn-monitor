@@ -45,6 +45,16 @@ average_speed = (total_distance / lc_time) * factor
 # speed distribution
 df["V1 Bottom Speed"] = df["V1 Bottom Speed"] * 1.943844
 
+# printing format
+sot = df['Unnamed: 0'].iloc[-1]
+sot = sot.strftime('%Y-%m-%d %H:%M:%S')
+
+eot = df['Unnamed: 0'].iloc[0]
+eot = eot.strftime('%Y-%m-%d %H:%M:%S')
+
+st.write(f"Start of turn: {sot}")
+st.write(f"End of turn: {eot}")
+
 # build a scater plot with plotly express
 fig = px.scatter(df, x='V1 Easting', y='V1 Northing')
 
